@@ -2,22 +2,22 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        // Create a sports field
+        SportsField field = new SportsField("Field 1", "Soccer");
+
+        // Get user input for renter's name, phone number, and rental duration
         Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the renter's name: ");
+        String customerName = scanner.nextLine();
+        System.out.print("Enter the renter's phone number: ");
+        String customerPhone = scanner.nextLine();
+        System.out.print("Enter the rental duration (in hours): ");
+        int duration = scanner.nextInt();
 
-        System.out.println("Enter Account Number: ");
-        int accNumber = scanner.nextInt();
+        // Create a rental for the sports field
+        Rental rental = new Rental(field, customerName, customerPhone, duration, 150000);
 
-        System.out.println("Enter Initial Balance: ");
-        double initBalance = scanner.nextDouble();
-
-        System.out.println("Enter Interest Rate: ");
-        double interestRate = scanner.nextDouble();
-
-        SavingsAccount savingsAccount = new SavingsAccount(accNumber, initBalance, interestRate);
-
-        System.out.println("\nAccount Information:");
-        savingsAccount.displayInfo();
-
-        scanner.close();
+        // Print the details of the rental
+        System.out.println(rental.getDetails());
     }
 }
